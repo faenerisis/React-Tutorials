@@ -3,9 +3,10 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 function Button() {
-  let [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(0);
+  const handleClick = () => setCounter(counter+1);
   return(
-    <button onClick={()=> setCounter(counter + 1)}>
+    <button onClick={handleClick}>
       {counter}
     </button>
   );
