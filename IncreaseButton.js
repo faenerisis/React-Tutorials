@@ -5,7 +5,9 @@ import ReactDOM from 'react-dom';
 function Button() {
   let [counter, setCounter] = useState(0);
   return(
-    <button onClick={()=> setCounter(counter + 1)}>{counter}</button>
+    <button onClick={()=> setCounter(counter + 1)}>
+      {counter}
+    </button>
   );
 }
 
