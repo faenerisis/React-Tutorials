@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React ⚛️</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      function Header() {
+        return(
+          <header>
+            <h1>Hello there !</h1>
+          </header>
+        )
+      }
+
+      function Main(props) {
+        return(
+          <section>
+            <h2>General {props.name} !</h2>
+            <ul>
+              {props.droids.map((droid) => (
+                <li key={droid.id}>{droid.title}</li>
+              ))}  
+            </ul>
+          </section>
+        )
+      }
+
+      function Footer(props) { 
+        return(
+          <footer>
+            <p>Copyright {props.year}</p>  
+          </footer>
+        );
+      }
+
+      const droids = [
+        "Droid-1",
+        "Droid-2",
+        "Droid-3",
+        "Droid-4"
+      ];
+
+      const droidObject = droids.map((droid, i) => ({
+        id: i,
+        title: droid
+      }));
+
+      function App() {
+        return(
+          <div>
+            <Header />
+            <Main name="Kenobi" droids={droidObject}/>
+            <Footer year={new Date().getFullYear() + 2000}/>
+          </div>
+        )
+      }
+      ReactDOM.render(
+        <App />,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
